@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App-header {
+  background-color: #1a1a1a;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.App-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+.App-main {
+  flex: 1;
+  display: flex;
+  flex-direction: row; /* Lay them out side-by-side */
+  flex-wrap: wrap;      /* Allow them to wrap to the next line on small screens */
+  justify-content: center; /* Center them horizontally */
+  align-items: flex-start; /* Align them to the top */
+  padding: 40px 20px;
+  gap: 32px;
+}
