@@ -10,10 +10,12 @@ import './components/SendSolForm.css';
 
 // Import your main App CSS
 import './App.css';
+import { clusterApiUrl, Connection } from '@solana/web3.js';
 
 function App() {
   const { connection } = useConnection();
   const wallet = useWallet();
+  const rpcEndpoint = import.meta.env.VITE_SOLANA_RPC_ENDPOINT || clusterApiUrl('devnet');
   return (
     <div className="App">
       <header className="App-header">
@@ -22,11 +24,9 @@ function App() {
       </header>
 
 <JupiverseKitProvider
-        connection={connection}
+        connection={new Connection(rpcEndpoint)}
         cluster="devnet"
         wallet={wallet}
-        // You can set your platform fee here (e.g., 50 bps = 0.5%)
-        // platformFeeBps={50} 
       >
         <main className="App-main">
           <SendSolForm />
