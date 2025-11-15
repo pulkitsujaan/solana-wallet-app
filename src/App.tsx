@@ -3,19 +3,14 @@ import { SendSolForm } from './components/SendSolForm';
 import { JupiterSwap } from './components/JupiterSwap';
 
 import { JupiverseKitProvider } from 'jupiverse-kit';
-import { useConnection, useWallet } from '@solana/wallet-adapter-react';
+// We can remove 'useWallet' as it's no longer needed in this file
 
-// Import the component CSS
 import './components/SendSolForm.css';
-
-// Import your main App CSS
 import './App.css';
-import { clusterApiUrl, Connection } from '@solana/web3.js';
 
 function App() {
-  const { connection } = useConnection();
-  const wallet = useWallet();
-  const rpcEndpoint = import.meta.env.VITE_SOLANA_RPC_ENDPOINT || clusterApiUrl('devnet');
+  // We no longer need the 'wallet' const here
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,11 +18,12 @@ function App() {
         <WalletMultiButton />
       </header>
 
-<JupiverseKitProvider
-        connection={new Connection(rpcEndpoint)}
-        cluster="devnet"
-        wallet={wallet}
-      >
+      {/* This is the simplest form.
+        The provider just needs to be *inside* your
+        WalletContextProvider, and it finds everything
+        (wallet, connection, cluster) automatically.
+      */}
+      <JupiverseKitProvider>
         <main className="App-main">
           <SendSolForm />
           <JupiterSwap />

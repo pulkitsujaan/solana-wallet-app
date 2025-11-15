@@ -1,6 +1,7 @@
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { LAMPORTS_PER_SOL, PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
-import React, { FC, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
+import type { FC } from 'react';
 
 // You can use a CSS file for styling
 import './SendSolForm.css';
